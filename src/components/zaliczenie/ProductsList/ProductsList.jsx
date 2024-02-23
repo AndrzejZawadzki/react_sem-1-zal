@@ -1,6 +1,7 @@
 import commonColumnsStyles from "../../../common/styles/Columns.module.scss";
 
 function ProductsList(props) {
+  const { listaProduktow } = props;
   return (
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>
@@ -8,6 +9,7 @@ function ProductsList(props) {
         <ul>
           {props.listaProduktow.map((pojedynczyProdukt) => (
             <li
+              key={pojedynczyProdukt.nazwa}
               onClick={() => props.addProductToShoppingList(pojedynczyProdukt)}
             >
               {pojedynczyProdukt.nazwa}

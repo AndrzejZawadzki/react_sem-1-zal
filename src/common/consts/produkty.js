@@ -44,6 +44,16 @@ const produkty = [
     kategoria: "warzywa",
     produktSpozywczy: true,
   },
+  {
+    nazwa: "jabłka",
+    kategoria: "owoce",
+    produktSpozywczy: true,
+  },
+  {
+    nazwa: "cytryny",
+    kategoria: "owoce",
+    produktSpozywczy: true,
+  },
 ];
 
 export default produkty;
