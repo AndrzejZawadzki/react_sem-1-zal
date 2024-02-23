@@ -10,7 +10,7 @@ function App() {
   const [shoppingList, setShoppingList] = useState([]);
   const [productListToDisplay, setProductListToDisplay] = useState(products);
   const handleFoodFilter = (e) => {
-    const nameFilter = e.currentTarget.elements.filterName.value;
+    const nameFilter = e.currentTarget.elements.filterName.value.toLowerCase();
     const category = e.currentTarget.elements.category.value;
     const isFoodProduct = e.currentTarget.elements.isFoodProduct.checked;
     console.log("nameFilter: ", nameFilter);
@@ -18,8 +18,10 @@ function App() {
     const result = products.filter((prod) => {
       if (isFoodProduct) {
         return category
-          ? prod.kategoria === category && prod.nazwa.startsWith(nameFilter)
-          : prod.nazwa.startsWith(nameFilter) && prod.produktSpozywczy;
+          ? prod.kategoria === category &&
+              prod.nazwa.toLowerCase().startsWith(nameFilter)
+          : prod.nazwa.toLowerCase().startsWith(nameFilter) &&
+              prod.produktSpozywczy;
       }
       return category
         ? prod.kategoria === category && prod.nazwa.startsWith(nameFilter)

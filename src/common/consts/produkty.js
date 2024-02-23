@@ -54,6 +54,21 @@ const produkty = [
     kategoria: "owoce",
     produktSpozywczy: true,
   },
+  {
+    nazwa: "czołg",
+    kategoria: "broń",
+    produktSpozywczy: false,
+  },
+  {
+    nazwa: "kiełbasa",
+    kategoria: "mięso i wędliny",
+    produktSpozywczy: true,
+  },
+  {
+    nazwa: "dupa",
+    kategoria: "inne",
+    produktSpozywczy: false,
+  },
 ];
 
 export default produkty;

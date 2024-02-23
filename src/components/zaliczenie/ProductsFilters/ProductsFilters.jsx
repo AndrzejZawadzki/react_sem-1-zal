@@ -1,7 +1,12 @@
+import produkty from "../../../common/consts/produkty";
 import styles from "../../../common/styles/Headers.module.scss";
+import ProductsList from "../ProductsList/ProductsList";
 
 function ProductsFilters(props) {
-  const { foodFilter } = props;
+  const { listaProduktow, foodFilter } = props;
+  const kategorie = Array.from(
+    new Set(produkty.map((pojedynczyProdukt) => pojedynczyProdukt.kategoria))
+  );
 
   return (
     <form onChange={foodFilter} className={styles.Wrapper}>
@@ -10,12 +15,11 @@ function ProductsFilters(props) {
       Filter by category:
       <select name="category">
         <option></option>
-        <option>nabiał</option>
-        <option>warzywa</option>
-        <option>nasiona</option>
-        <option>narzędzia</option>
-        <option>inne</option>
-        <option>owoce</option>
+        {kategorie.map((category) => (
+          <option value={category} key={category}>
+            {category}
+          </option>
+        ))}
       </select>
       Food only:
       <input type="checkbox" name="isFoodProduct" />
