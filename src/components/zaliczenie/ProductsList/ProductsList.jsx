@@ -1,7 +1,6 @@
 import commonColumnsStyles from "../../../common/styles/Columns.module.scss";
 
 function ProductsList(props) {
-  const { listaProduktow } = props;
   return (
     <div className={commonColumnsStyles.App}>
       <header className={commonColumnsStyles.AppHeader}>

@@ -5,25 +5,30 @@ import ProductsList from "./components/zaliczenie/ProductsList/ProductsList";
 import ShoppingList from "./components/zaliczenie/ShoppingList/ShoppingList";
 import produkty from "./common/consts/produkty";
 import { useState } from "react";
-
 function App() {
   const [products, setProducts] = useState(produkty);
   const [shoppingList, setShoppingList] = useState([]);
   const [productListToDisplay, setProductListToDisplay] = useState(products);
-
   const handleFoodFilter = (e) => {
-    const nameFilter = e.currentTarget.value;
-    /* const categoryFilter = e.currentTarget.elements.category.value;
-    const isFoodProduct = e.currentTarget.elements.isFoodProduct.checked; */
+    const nameFilter = e.currentTarget.elements.filterName.value;
+    const category = e.currentTarget.elements.category.value;
+    const isFoodProduct = e.currentTarget.elements.isFoodProduct.checked;
     console.log("nameFilter: ", nameFilter);
+    console.log("category", category);
     const result = products.filter((prod) => {
-      return prod.nazwa.startsWith(nameFilter);
+      if (isFoodProduct) {
+        return category
+          ? prod.kategoria === category && prod.nazwa.startsWith(nameFilter)
+          : prod.nazwa.startsWith(nameFilter) && prod.produktSpozywczy;
+      }
+      return category
+        ? prod.kategoria === category && prod.nazwa.startsWith(nameFilter)
+        : prod.nazwa.startsWith(nameFilter);
     });
     console.log("lista prod", products);
-    setProductListToDisplay(result);
     console.log("result", result);
+    setProductListToDisplay(result);
   };
-
   return (
     <div className={styles.appWrapper}>
       <AddProducts />
@@ -46,5 +51,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
