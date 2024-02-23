@@ -1,6 +1,6 @@
 import produkty from "../../../common/consts/produkty";
 import styles from "../../../common/styles/Headers.module.scss";
-import ProductsList from "../ProductsList/ProductsList";
+//import ProductsList from "../ProductsList/ProductsList";
 
 function ProductsFilters(props) {
   const { listaProduktow, foodFilter } = props;
